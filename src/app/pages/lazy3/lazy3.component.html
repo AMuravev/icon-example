@@ -1,0 +1,6 @@
+<ng-container *ngFor="let icon of allIcon | keyvalue">
+  <div>
+    name: {{icon.key}}
+    <svg-icon [key]="icon.key" size="lg"></svg-icon>
+  </div>
+</ng-container>

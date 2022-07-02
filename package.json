@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate-icons": "svg-generator",
+    "build:stats": "ng build --stats-json",
+    "analyze": "webpack-bundle-analyzer dist/icon-example/stats.json",
+    "build-analize": "npm run build:stats & npm run analyze"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +23,7 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@ngneat/svg-icon": "^3.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -27,6 +32,7 @@
     "@angular-devkit/build-angular": "~0.1102.13",
     "@angular/cli": "~11.2.15",
     "@angular/compiler-cli": "~11.2.14",
+    "@ngneat/svg-generator": "^4.1.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
@@ -40,6 +46,18 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "webpack-bundle-analyzer": "^4.4.2"
+  },
+  "svgGenerator": {
+    "outputPath": "./src/app/svg",
+    "prefix": "app",
+    "srcPath": "./src/assets/svg",
+    "svgoConfig": {
+      "plugins": [
+        "removeDimensions",
+        "cleanupAttrs"
+      ]
+    }
   }
 }
